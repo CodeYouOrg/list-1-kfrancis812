@@ -14,9 +14,11 @@
 # Note: python does not have a ++ operator, but += works.
 
 def match_ends(words):
-    # +++your code here+++
-    return
-
+    count = 0
+    for name in words:
+        if len(name) >= 2 and name[0] == name[-1]:
+            count = count + 1
+    return count
 
 # B. front_x
 # Given a list of strings, return a list with the strings
@@ -27,8 +29,7 @@ def match_ends(words):
 # before combining them.
 
 def front_x(words):
-    # +++your code here+++
-    return
+    return sorted(words, key=lambda word: (not word.startswith('x'), word))
 
 
 # C. sort_last
@@ -39,8 +40,10 @@ def front_x(words):
 # Hint: use a custom key= function to extract the last element form each tuple.
 
 def sort_last(tuples):
-    # +++your code here+++
-    return
+    def last(l):
+        return l[-1]
+    return sorted(tuples, key=last)
+
 
 
 # Simple provided test() function used in main() to print
